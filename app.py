@@ -60,7 +60,9 @@ if predict_button:
     # Download stock data
     from datetime import datetime
 
-    df = yf.download(stock_symbol, start="2012-01-01", end="2019-12-26")
+    df = pd.read_csv("P639 DATASET.csv", parse_dates=["Date"])
+    df.set_index("Date", inplace=True)
+
 
     df.columns = df.columns.get_level_values(0)
 
